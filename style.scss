@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=BioRhyme:wght@400;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+:root {
+  --color-primary: #141a32;
+  --color-secondary: #3e65fb;
+  --light-blue: #809cf5;
+  --text: #d2d2d7;
+  --text-2: #5a6583;
+  --transition: all 0.4s ease-in-out;
+  --shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+}
+@mixin flex($direction, $items, $content) {
+  display: flex;
+  justify-content: $content;
+  align-items: $items;
+  flex-direction: $direction;
+}
+@mixin grid($value1, $value2, $gap) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($value1, $value2));
+  gap: $gap;
+}
+body {
+  font-family: "BioRhyme", serif;
+  font-size: 1.1rem;
+  background: var(--color-primary);
+  color: var(--text);
+  transition: var(--transition);
+  overflow: hidden;
+}
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+header {
+  height: 100vh;
+  color: var(--text);
+  overflow-x: hidden;
+  .header-content {
+    @include grid(400px, 1fr, 0.2rem);
+    width: 100%;
+    height: 100%;
+    .left-content {
+      @include flex(row, center, center);
+      position: relative;
+      .h-shape {
+        transition: var(--transition);
+        width: 65%;
+        height: 100%;
+        background: var(--color-secondary);
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
+      }
+      .image {
+        border-radius: 15px;
+        height: 90%;
+        width: 78%;
+        // margin-left: 4rem;
+        background: #111;
+        transition: var(--transition);
+        img {
+          object-fit: cover;
+          cursor: pointer;
+          transition: var(--transition);
+          filter: grayscale(50%);
+          &:hover {
+            filter: grayscale(0);
+          }
+        }
+      }
+    }
+  }
+  .right-content {
+    @include flex(column, center, center);
+    padding-right: 10rem;
+    text-align: center;
+    h1 {
+      font-size: calc(1rem, 10vw, 3rem);
+      span {
+        color: var(--color-secondary);
+      }
+    }
+    h2 {
+      .typing {
+        margin-left: 10px;
+        position: relative;
+        color: var(--color-secondary);
+        &::after {
+          content: "";
+          position: absolute;
+          width: 1px;
+          height: 90%;
+          right: -5px;
+          background: white;
+          animation: blink 0.5s infinite ease;
+          @keyframes blink {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+    p {
+      margin: 1.4rem 0;
+      line-height: 2rem;
+    }
+  }
+}
+section {
+  min-height: 100vh;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 3rem 15rem;
+}
+.section {
+  transform: translateY(-100%) scale(0);
+  transition: var(--transition);
+  background: var(--color-primary);
+}
+.sec-one,
+.sec-two,
+.sec-three,
+.sec-four {
+  display: none;
+  transform: translateY(0) scale(1);
+  &.active {
+    display: block;
+    animation: scaleAnimation 1s ease-in-out;
+    @keyframes scaleAnimation {
+      0% {
+        transform: translateY(-100%) scaleY(0);
+      }
+      100% {
+        transform: translateY(0%) scaleY(1);
+      }
+    }
+  }
+}
+.sec-two,
+.sec-four {
+  background: var(--color-secondary);
+}
+
+.section-buttons {
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  right: 3%;
+  transform: translateY(-50%);
+
+  @include flex(column, center, center);
+  .button {
+    padding: 1rem;
+    cursor: pointer;
+    background: var(--text-2);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    @include flex(row, center, center);
+    margin: 0.5rem 0;
+    box-shadow: var(--shadow);
+    .iconify {
+      font-size: 15rem;
+      pointer-events: none;
+    }
+  }
+  .active-btn {
+    background: var(--color-secondary);
+    transition: var(--transition);
+  }
+}
+@media only screen and (max-width: 768px) {
+  header {
+    .right-content {
+      padding-right: inherit;
+      padding: 2rem;
+    }
+  }
+}
