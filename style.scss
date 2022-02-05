@@ -13,6 +13,7 @@
   --text-2: #5a6583;
   --transition: all 0.4s ease-in-out;
   --shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 3px 15px rgba(0, 0, 0, 0.32);
 }
 @mixin flex($direction, $items, $content) {
   display: flex;
@@ -27,11 +28,11 @@
 }
 body {
   font-family: "BioRhyme", serif;
-  font-size: 1.1rem;
+  font-size: 14px;
   background: var(--color-primary);
   color: var(--text);
   transition: var(--transition);
-  overflow: hidden;
+  // overflow: hidden;
 }
 a {
   display: inline-block;
@@ -42,6 +43,73 @@ a {
 img {
   width: 100%;
   height: 100%;
+}
+.btn-container {
+  display: flex;
+  .btn {
+    border-radius: 20px;
+    color: inherit;
+    font-weight: 700;
+    position: relative;
+    border: 1px solid var(--light-blue);
+
+    @include flex(row, center, center);
+    overflow: hidden;
+    .btn-text {
+      padding: 0 2rem;
+      transition: var(--transition);
+    }
+    .btn-icon {
+      background: var(--light-blue);
+      @include flex(inherit, center, center);
+      padding: 0.5rem;
+      font-size: 2.4rem;
+      border-radius: 50%;
+      color: var(--color-primary);
+      transition: var(--transition);
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translateX(100%);
+      transition: var(--transition);
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+    }
+    &:hover {
+      color: var(--color-primary);
+      &::before {
+        background: var(--light-blue);
+        transform: translateX(0);
+      }
+    }
+  }
+}
+.title-container {
+  text-align: center;
+  h2 {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 2rem;
+
+    span {
+      color: var(--light-blue);
+    }
+    .bg-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: var(--text-2);
+      transition: var(--transition);
+      z-index: -1;
+      transform: translate(-50%, -50%);
+      font-weight: 700;
+      font-size: 3.3rem;
+    }
+  }
 }
 header {
   height: 100vh;
@@ -70,13 +138,13 @@ header {
         height: 90%;
         width: 78%;
         // margin-left: 4rem;
-        background: #111;
         transition: var(--transition);
         img {
+          border-radius: 15px;
           object-fit: cover;
           cursor: pointer;
           transition: var(--transition);
-          filter: grayscale(50%);
+          filter: grayscale(20%);
           &:hover {
             filter: grayscale(0);
           }
@@ -87,18 +155,19 @@ header {
   .right-content {
     @include flex(column, center, center);
     padding-right: 10rem;
-    text-align: center;
+    // text-align: center;
     h1 {
-      font-size: calc(1rem, 10vw, 3rem);
+      font-size: clamp(1rem, 3vw, 2rem);
       span {
-        color: var(--color-secondary);
+        color: var(--light-blue);
       }
     }
     h2 {
+      font-size: 1.2rem;
       .typing {
         margin-left: 10px;
         position: relative;
-        color: var(--color-secondary);
+        color: var(--light-blue);
         &::after {
           content: "";
           position: absolute;
@@ -121,6 +190,7 @@ header {
     p {
       margin: 1.4rem 0;
       line-height: 2rem;
+      font-size: 1rem;
     }
   }
 }
@@ -130,7 +200,7 @@ section {
   position: absolute;
   left: 0;
   top: 0;
-  padding: 3rem 15rem;
+  padding: clamp(1rem, 6vw, 3rem);
 }
 .section {
   transform: translateY(-100%) scale(0);
@@ -156,11 +226,71 @@ section {
     }
   }
 }
-.sec-two,
-.sec-four {
-  background: var(--color-secondary);
-}
 
+.sec-two {
+  .about-container {
+    @include grid(350px, 1fr, 1rem);
+    padding-top: 3.5rem;
+    padding-bottom: 5rem;
+    .left-content {
+      h4 {
+        font-size: 1.3rem;
+      }
+      p {
+        margin: 1rem 0;
+        line-height: 1.4rem;
+        font-size: 1rem;
+
+        span {
+          color: var(--light-blue);
+          font-size: 1.4rem;
+          text-decoration: underline;
+        }
+      }
+    }
+    .right-content {
+      @include grid(250px, 1fr, 0.4rem);
+      .about-item {
+        border: 1px solid var(--text-2);
+        border-radius: 5px;
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+        &:hover {
+          cursor: default;
+          transform: translateY(-5px);
+          border-color: var(--light-blue);
+          box-shadow: var(--shadow-hover);
+        }
+        .abt-text {
+          padding: 1.5rem;
+          @include flex(column, inherit, inherit);
+          .large-text {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--light-blue);
+          }
+          .small-text {
+            padding-left: 3rem;
+            position: relative;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            color: var(--text);
+            letter-spacing: 2px;
+            &::before {
+              content: "";
+              position: absolute;
+              left: 0;
+              top: 15px;
+              width: 2rem;
+              height: 2px;
+              background: var(--text);
+            }
+          }
+        }
+      }
+    }
+  }
+}
 .section-buttons {
   position: fixed;
   z-index: 10;
