@@ -7,7 +7,8 @@
 }
 :root {
   --color-primary: #141a32;
-  --color-secondary: #3e65fb;
+  // --color-secondary: #3e65fb;
+  --color-secondary: #06bd6e;
   --light-blue: #809cf5;
   --text: #d2d2d7;
   --text-2: #5a6583;
@@ -51,7 +52,7 @@ img {
     color: inherit;
     font-weight: 700;
     position: relative;
-    border: 1px solid var(--light-blue);
+    border: 1px solid var(--color-secondary);
 
     @include flex(row, center, center);
     overflow: hidden;
@@ -60,7 +61,7 @@ img {
       transition: var(--transition);
     }
     .btn-icon {
-      background: var(--light-blue);
+      background: var(--color-secondary);
       @include flex(inherit, center, center);
       padding: 0.5rem;
       font-size: 2.4rem;
@@ -82,7 +83,7 @@ img {
     &:hover {
       color: var(--color-primary);
       &::before {
-        background: var(--light-blue);
+        background: var(--color-secondary);
         transform: translateX(0);
       }
     }
@@ -90,25 +91,44 @@ img {
 }
 .title-container {
   text-align: center;
+
   h2 {
     position: relative;
     text-transform: uppercase;
     font-size: 2rem;
 
     span {
-      color: var(--light-blue);
+      color: var(--color-secondary);
     }
     .bg-text {
       position: absolute;
       top: 50%;
       left: 50%;
-      color: var(--text-2);
+      color: rgba(220, 220, 220, 0.115);
       transition: var(--transition);
       z-index: -1;
       transform: translate(-50%, -50%);
       font-weight: 700;
-      font-size: 3.3rem;
+      font-size: clamp(2.6rem, 10vw, 4.6rem);
     }
+  }
+}
+.stat-title {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.4rem;
+  margin-bottom: 3rem;
+  padding: 10px;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 20%;
+    height: 3px;
+    background: var(--text-2);
+    transform: translateX(-50%);
   }
 }
 header {
@@ -144,9 +164,11 @@ header {
           object-fit: cover;
           cursor: pointer;
           transition: var(--transition);
-          filter: grayscale(20%);
+          filter: drop-shadow(35px 30px 4px #111);
+          transform: scale(0.8);
           &:hover {
-            filter: grayscale(0);
+            filter: drop-shadow(20px 15px 1px #111);
+            transform: scale(0.9);
           }
         }
       }
@@ -159,7 +181,7 @@ header {
     h1 {
       font-size: clamp(1rem, 3vw, 2rem);
       span {
-        color: var(--light-blue);
+        color: var(--color-secondary);
       }
     }
     h2 {
@@ -167,7 +189,7 @@ header {
       .typing {
         margin-left: 10px;
         position: relative;
-        color: var(--light-blue);
+        color: var(--color-secondary);
         &::after {
           content: "";
           position: absolute;
@@ -235,6 +257,7 @@ section {
     .left-content {
       h4 {
         font-size: 1.3rem;
+        text-transform: uppercase;
       }
       p {
         margin: 1rem 0;
@@ -242,7 +265,7 @@ section {
         font-size: 1rem;
 
         span {
-          color: var(--light-blue);
+          color: var(--color-secondary);
           font-size: 1.4rem;
           text-decoration: underline;
         }
@@ -255,10 +278,11 @@ section {
         border-radius: 5px;
         transition: var(--transition);
         box-shadow: var(--shadow);
+
         &:hover {
           cursor: default;
           transform: translateY(-5px);
-          border-color: var(--light-blue);
+          border-color: var(--color-secondary);
           box-shadow: var(--shadow-hover);
         }
         .abt-text {
@@ -267,7 +291,7 @@ section {
           .large-text {
             font-size: 3rem;
             font-weight: 700;
-            color: var(--light-blue);
+            color: var(--color-secondary);
           }
           .small-text {
             padding-left: 3rem;
@@ -286,6 +310,89 @@ section {
               background: var(--text);
             }
           }
+        }
+      }
+    }
+  }
+  .about-stats {
+    padding-bottom: 2rem;
+
+    .progress-bars {
+      @include grid(250px, 1fr, 2rem);
+      .progress-bar {
+        @include flex(column, inherit, inherit);
+        .progress-title {
+          text-transform: uppercase;
+          font-weight: 700;
+        }
+        .progress-container {
+          @include flex(row, center, center);
+          .progress-text {
+            color: var(--color-secondary);
+          }
+          .progress {
+            width: 100%;
+            height: 0.4rem;
+            background: var(--text-2);
+            margin-left: 10px;
+            position: relative;
+            span {
+              position: absolute;
+              left: 0;
+              top: 0;
+              height: 100%;
+              background: var(--color-secondary);
+            }
+          }
+        }
+      }
+    }
+  }
+  .timeline-container {
+    .timeline {
+      @include grid(250px, 400px, 3rem);
+      padding: 4rem;
+      width: 90%;
+      margin: 0 auto;
+      .timeline-item {
+        position: relative;
+        padding-left: 2rem;
+        border-left: 1px solid var(--text-2);
+        .timeline-icon {
+          position: absolute;
+          left: -4rem;
+          top: 50%;
+          width: 50px;
+          transform: translateY(-50%);
+          height: 50px;
+          border-radius: 50%;
+          background: var(--color-secondary);
+          @include flex(inherit, center, center);
+          .iconify {
+            font-size: 1.3rem;
+            color: var(--color-primary);
+          }
+        }
+        .timeline-duration {
+          padding: 0.2rem 0.6rem;
+          background: var(--text-2);
+          border-radius: 15px;
+          display: inline-block;
+          font-size: 0.8rem;
+          text-transform: uppercase;
+          font-weight: 700;
+        }
+        h5 {
+          padding: 1rem 0;
+          text-transform: uppercase;
+          font-size: 1rem;
+          span {
+            color: var(--text-2);
+            font-size: 0.9rem;
+          }
+        }
+        .btn-container {
+          margin-top: 1rem;
         }
       }
     }
