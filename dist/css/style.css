@@ -320,7 +320,7 @@ section {
   position: absolute;
   left: 0;
   top: 0;
-  padding: clamp(0.4rem, 2vw, 3rem);
+  padding: clamp(1rem, 4vw, 10rem);
 }
 
 .section {
@@ -605,6 +605,156 @@ section {
 
 .sec-two .timeline-container .timeline .timeline-item .btn-container {
   margin-top: 1rem;
+}
+
+.portfolio .port-text {
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.portfolio #filter-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 2rem;
+}
+
+.portfolio #filter-btns li {
+  margin-left: clamp(5px, 2vw, 10px);
+  padding: 1rem;
+  color: var(--color-primary);
+  background: var(--color-secondary);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.portfolio #filter-btns li:first-child {
+  margin-left: 0;
+}
+
+.portfolio .gallery-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  overflow: hidden;
+}
+
+.portfolio .gallery-container .item-container {
+  position: relative;
+}
+
+.portfolio .gallery-container .item-container img {
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.portfolio .gallery-container .item-container .hover-items {
+  width: 100%;
+  height: 100%;
+  background: var(--color-secondary);
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 15px;
+  opacity: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.portfolio .gallery-container .item-container .hover-items h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1.4rem;
+}
+
+.portfolio .gallery-container .item-container .hover-items .icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.portfolio .gallery-container .item-container .hover-items .icons a {
+  background: var(--color-primary);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  cursor: pointer;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.portfolio .gallery-container .item-container .hover-items .icons a:first-child {
+  margin-left: 0;
+}
+
+.portfolio .gallery-container .item-container .hover-items .icons a .iconify {
+  font-size: 1.4rem;
+  color: var(--text);
+}
+
+.portfolio .gallery-container .item-container .hover-items .icons a:hover {
+  background: var(--text);
+}
+
+.portfolio .gallery-container .item-container .hover-items .icons a:hover .iconify {
+  color: var(--color-primary);
+}
+
+.portfolio .gallery-container .item-container:hover .hover-items {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  opacity: 1;
 }
 
 .section-buttons {

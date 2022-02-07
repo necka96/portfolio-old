@@ -222,7 +222,7 @@ section {
   position: absolute;
   left: 0;
   top: 0;
-  padding: clamp(0.4rem, 2vw, 3rem);
+  padding: clamp(1rem, 4vw, 10rem);
 }
 .section {
   transform: translateY(-100%) scale(0);
@@ -394,6 +394,89 @@ section {
         .btn-container {
           margin-top: 1rem;
         }
+      }
+    }
+  }
+}
+.portfolio {
+  .port-text {
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 1.3rem;
+  }
+  #filter-btns {
+    @include flex(row, center, center);
+    margin-bottom: 2rem;
+    li {
+      margin-left: clamp(5px, 2vw, 10px);
+      padding: 1rem;
+      color: var(--color-primary);
+      background: var(--color-secondary);
+      border-radius: 15px;
+      cursor: pointer;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+  .gallery-container {
+    @include grid(250px, 1fr, 3rem);
+    overflow: hidden;
+    .item-container {
+      position: relative;
+
+      img {
+        border-radius: 15px;
+        cursor: pointer;
+      }
+      .hover-items {
+        width: 100%;
+        height: 100%;
+        background: var(--color-secondary);
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 15px;
+        opacity: 0;
+        transform: scale(0);
+        transition: var(--transition);
+        @include flex(column, center, center);
+
+        h3 {
+          font-size: 1.4rem;
+          margin-bottom: 1.4rem;
+        }
+        .icons {
+          @include flex(row, center, center);
+
+          a {
+            background: var(--color-primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-left: 10px;
+            @include flex(row, center, center);
+            cursor: pointer;
+            transition: var(--transition);
+            &:first-child {
+              margin-left: 0;
+            }
+            .iconify {
+              font-size: 1.4rem;
+              color: var(--text);
+            }
+            &:hover {
+              background: var(--text);
+              .iconify {
+                color: var(--color-primary);
+              }
+            }
+          }
+        }
+      }
+      &:hover .hover-items {
+        transform: scale(1);
+        opacity: 1;
       }
     }
   }
