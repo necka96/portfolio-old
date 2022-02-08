@@ -67,6 +67,7 @@ let numFive = document.getElementById("num-five")
 let numSix = document.getElementById("num-six")
 let numSeven = document.getElementById("num-seven")
 let numEight = document.getElementById("num-eight")
+let numNine = document.getElementById("num-nine")
 let i = 0
 function increaseWidth (){
   if(i == 0){
@@ -79,6 +80,7 @@ function increaseWidth (){
   var  elSix = document.getElementById("java")
   var  elSeven = document.getElementById("git")
   var  elEight = document.getElementById("scss")
+  var  elNine = document.getElementById("jquery")
   var width = 0
   let intervalOne = setInterval(Html, 60)
   let intervalTwo = setInterval(Css, 60)
@@ -88,6 +90,7 @@ function increaseWidth (){
   let intervalSix = setInterval(Java, 60)
   let intervalSeven = setInterval(Git, 60)
   let intervalEight = setInterval(Scss, 60)
+  let intervalNine = setInterval(Jquery, 60)
   function Html(){
     if(width >= 77){
       clearInterval(intervalOne)
@@ -177,6 +180,17 @@ function increaseWidth (){
       numEight.textContent = width + "%"
     }
   }
+  function Jquery (){
+    width --
+    if(width >= 45){
+      clearInterval(intervalNine)
+      i = 0
+    }else{
+      width ++
+      elNine.style.width = width + "%"
+      numNine.textContent = width + "%"
+    }
+  }
   }
 
 }
@@ -187,6 +201,10 @@ const items = document.querySelector(".gallery-container").children
 
 for(let i=0; i < filterButtons.length; i++){
   filterButtons[i].addEventListener("click", function(){
+      for(let e = 0; e < items.length; e++){
+      filterButtons[e].classList.remove("active")
+      this.classList.add("active")
+   
    
     const target = this.getAttribute("data-target")
     for(let k = 0; k < items.length; k++){
@@ -198,5 +216,41 @@ for(let i=0; i < filterButtons.length; i++){
         items[k].style.display = "block"
       }
     }
+     }
   })
 }
+const date = document.getElementById("date").textContent = new Date().getFullYear()
+
+var icon = document.getElementById("icon")
+
+if(localStorage.getItem("theme") == null){
+  localStorage.setItem("theme", "light")
+}
+
+const local = localStorage.getItem("theme")
+
+if(local == "light"){
+  icon.src = "../img/moon.png"
+  document.body.classList.remove("dark-theme")
+}else if (local == "dark"){
+  icon.src = "../img/sun.png"
+  document.body.classList.add("dark-theme")
+}
+
+icon.addEventListener("click", ()=>{
+  document.body.classList.toggle("dark-theme")
+  if(document.body.classList.contains("dark-theme")){
+    icon.src = "../img/sun.png"
+    localStorage.setItem("theme", "dark")
+  }else{
+    icon.src = "../img/moon.png"
+    localStorage.setItem("theme", "light")
+  }
+})
+
+
+
+const preloader = document.querySelector(".preloader")
+window.addEventListener("load", ()=>{
+  preloader.classList.add("disappear")
+})

@@ -5,7 +5,11 @@
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="./dist/css/style.css">
- <title>Document</title>
+<link rel="shortcut icon" href="./img/favicon.ico" />
+<meta name="author" content="Nemanja Djordjevic nemanja2014@live.com">
+<meta name="keywords" content="nemanja djordjevic portfolio front-end" />
+
+ <title>Portfolio</title>
 </head>
 <body class="main-content">
  <header class="section sec-one header active" id="home">
@@ -114,6 +118,15 @@
                 </div>
               </div>
             </div>
+            <div class="progress-bar">
+              <p class="progress-title">Jquery</p>
+              <div class="progress-container">
+                <p class="progress-text" id="num-nine"></p>
+                <div class="progress">
+                  <span id="jquery"></span>
+                </div>
+              </div>
+            </div>
                 <div class="progress-bar">
                   <p class="progress-title">React</p>
                   <div class="progress-container">
@@ -216,12 +229,12 @@
   <section class="section sec-three portfolio" id="portfolio">
       <div class="container">
         <div class="title-container">
-          <h2>Moji <span> projekti</span><span class="bg-text">Portfolio</span></h2>
+          <h2><span> projekti</span><span class="bg-text">Portfolio</span></h2>
         </div>
         <p class="port-text">Ovo su neki od mojih radova</p>
         <div class="filter-buttons">
           <ul id="filter-btns">
-            <li data-target="all">Svi</li>
+            <li data-target="all" class="active">Svi</li>
             <li data-target="js">JS</li>
             <li data-target="jquery">Jquery</li>
             <li data-target="react">React</li>
@@ -388,22 +401,86 @@
 
 
   </section>
-  <section class="section sec-four contact" id="contact"></section>
+  <section class="section sec-four contact" id="contact">
+    <div class="title-container">
+      <h2><span>Kontakt</span><span class="bg-text">Kontakt</span></h2>
+      <div class="contact-container">
+        <div class="address">
+            <span class="iconify" data-icon="carbon:location-heart"></span>
+          <span>Adresa</span>
+          <p>Aleksandra Puškina 1 Vlasotince</p>
+        </div>
+      
+      
+        <div class="phone">
+          <span class="iconify" data-icon="clarity:mobile-phone-line"></span>
+          <span>Kontakt telefon:</span>
+          <p>+38163-219-277</p>
+        </div>
+      
+      
+        <div class="email">
+      <span class="iconify" data-icon="ic:round-mark-email-unread"></span>
+          <span>Email:</span> <br>
+          <a href="mailto:@nemanja2014@live.com">nemanja2014@live.com</a>
+        </div>
+      
+        <div class="form">
+          <form action="">
+            <div class="name">
+              <input type="text" placeholder="ime" required>
+            </div>
+            <div class="lastname">
+              <input type="text" placeholder="prezime" required>
+      
+            </div>
+            <div class="form-email">
+              <input type="email" placeholder="email">
+      
+            </div>
+            <div class="from-phone">
+              <input type="tel" placeholder="broj telefona">
+      
+            </div>
+            <div class="area">
+              <textarea placeholder="Vasa poruka" cols="30" rows="10"></textarea>
+              <button type="submit" class="btn">Posalji poruku</button>
+            </div>
+      
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="social-icon">
+        <a href="#"><span class="iconify" data-icon="fa-brands:facebook-square"></span></a>
+        <a href="#"><span class="iconify" data-icon="fa-brands:instagram"></span></a>
+      </div>
+      <div class="copyright">
+        <p>Copiyrigt <span class="name">Nemanja Ddjordjevic</span>  <span id="date"></span> || Sva prava zadrazava</p>
+      </div>
+    </footer>
+  </section>
  </main>
  <div class="section-buttons">
    <div class="button button-1 active-btn" data-id="home">
     <span class="iconify" data-icon="flat-color-icons:home"></span>
    </div>
    <div class="button button-2" data-id="about">
-  <span class="iconify" data-icon="simple-icons:aboutdotme" style="color: #fff;"></span>
+  <span class="iconify" data-icon="simple-icons:aboutdotme" style="color: #111;"></span>
    </div>
    <div class="button button-3" data-id="portfolio">
-    <span class="iconify" data-icon="zondicons:portfolio" style="color: #fff;"></span>
+    <span class="iconify" data-icon="zondicons:portfolio" style="color: #111;"></span>
    </div>
    <div class="button button-4" data-id="contact">
     <span class="iconify" data-icon="flat-ui:mail"></span>
    </div>
  </div>
+
+  <img src="./img/moon.png" alt="" id="icon">
+  <div class="preloader">
+    <img src="./img/preloader.gif" alt="">
+  </div>
  <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
  <script src="./js/app.js"></script>
 </body>
