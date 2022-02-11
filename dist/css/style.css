@@ -10,8 +10,8 @@
 :root {
   --color-primary: #3e65fb;
   --color-secondary: #2ef778;
-  --light-blue: #000000;
-  --text: rgb(255, 255, 255);
+  --light-blue: #809cf5;
+  --text: rgb(20, 7, 7);
   --text-2: #ffffff76;
   --transition: all 0.4s ease-in-out;
   --shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
@@ -22,6 +22,7 @@
   --shadow-4: rgba(0, 0, 0, 0.06);
   --shadow-5: rgba(0, 0, 0, 0.09);
   --color3: rgba(220, 220, 220, 0.224);
+  --color4: rgb(18, 210, 231);
 }
 
 .dark-theme {
@@ -31,6 +32,7 @@
   --text: #d2d2d7;
   --text-2: #5a6583;
   --color3: rgba(220, 220, 220, 0.115);
+  --color4: rgb(11, 106, 117);
 }
 
 body {
@@ -40,6 +42,27 @@ body {
   color: var(--text);
   -webkit-transition: var(--transition);
   transition: var(--transition);
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-secondary);
+  border-radius: 100vw;
+  margin-block: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 100vw;
+  border: 0.2rem solid var(--text-2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--light-blue);
 }
 
 a {
@@ -221,16 +244,6 @@ a {
   background: var(--text-2);
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-}
-
-#icon {
-  position: fixed;
-  top: 5%;
-  -webkit-transform: translateY(-5%);
-          transform: translateY(-5%);
-  right: 3%;
-  width: 50px;
-  height: 50px;
 }
 
 header {
@@ -1062,6 +1075,21 @@ section img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.section-buttons .icon-holder {
+  padding: 1rem;
+  background: var(--text-2);
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0.5rem 0;
+}
+
+.section-buttons .icon-holder img {
+  width: 100%;
+  height: 100%;
 }
 
 .section-buttons .button {
