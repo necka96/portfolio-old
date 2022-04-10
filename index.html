@@ -4,7 +4,7 @@
  <meta charset="UTF-8">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="./dist/css/style.css">
+ <link rel="stylesheet" href="./css/style.css">
 <link rel="shortcut icon" href="./img/favicon.ico" />
 <meta name="author" content="Nemanja Djordjevic nemanja2014@live.com">
 <meta name="keywords" content="nemanja djordjevic portfolio front-end" />
@@ -242,7 +242,7 @@
         </div>
 
         <div class="gallery-container">
-          <div class="item" data-id="js">
+          <div class="item"  data-id="js">
             <div class="item-container">
               <div class="images">
                 <img src="./img/quotes.png" alt="quotes">
@@ -404,6 +404,7 @@
   <section class="section sec-four contact" id="contact">
     <div class="title-container">
       <h2><span>Kontakt</span><span class="bg-text">Kontakt</span></h2>
+    </div>
       <div class="contact-container">
         <div class="address">
             <span class="iconify" data-icon="carbon:location-heart"></span>
@@ -411,7 +412,7 @@
           <p>Aleksandra Puškina 1 Vlasotince</p>
         </div>
       
-      
+  
         <div class="phone">
           <span class="iconify" data-icon="clarity:mobile-phone-line"></span>
           <span>Kontakt telefon:</span>
@@ -450,7 +451,62 @@
           </form>
         </div>
       </div>
-    </div>
+      <div class="contact-container-light-theme">
+        <div class="contact-holder">
+          <h3>Stupimo u kontakt</h3>
+          <p>Otvoren sam za predloge ili razgovor</p>
+
+          <div class="address">
+            <div>
+             <div class="holder-icon">
+                <span class="iconify" data-icon="carbon:location-heart"></span>
+             </div>     
+          </div>
+          <p>Adresa: Aleksandra Puškina 1 Vlasotince</p>
+          </div>
+          
+          
+          <div class="phone">
+          <div>
+             <div class="holder-icon">
+                <span class="iconify" data-icon="clarity:mobile-phone-line"></span>
+             </div>
+            
+          </div>
+         <p>Kontakt telefon: +38163-219-277</p>
+          </div>
+          
+          
+          <div class="email">
+            <div class="holder-icon">
+              <span class="iconify" data-icon="ic:round-mark-email-unread"></span>
+            </div>
+            <p>Email: <a href="mailto:@nemanja2014@live.com">nemanja2014@live.com</a></p>
+           
+          </div>
+        </div>
+        <div class="form-container">
+         
+          <form action="">
+            <div class="name">
+              <input type="text" placeholder="ime" required>
+            </div>
+            <div class="lastname">
+              <input type="text" placeholder="prezime" required>
+            </div>
+            <div class="form-email">
+              <input type="email" placeholder="email">
+          
+            </div>
+            <div class="from-phone">
+              <input type="tel" placeholder="broj telefona">
+            </div>
+            <div class="area">
+              <textarea placeholder="Vasa poruka" ></textarea>
+              <button type="submit" class="btn">Posalji poruku</button>
+            </div>
+        </div>
+      </div>
     <footer>
       <div class="social-icon">
         <a href="#"><span class="iconify" data-icon="fa-brands:facebook-square"></span></a>
@@ -481,10 +537,10 @@
    
  </div>
 
-
+<!-- 
   <div class="preloader">
     <img src="./img/preloader.gif" alt="">
-  </div>
+  </div> -->
  <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
  <script src="./js/app.js"></script>
 </body>

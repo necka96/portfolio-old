@@ -201,20 +201,22 @@ const items = document.querySelector(".gallery-container").children
 
 for(let i=0; i < filterButtons.length; i++){
   filterButtons[i].addEventListener("click", function(){
-      for(let e = 0; e < items.length; e++){
+      for(let e = 0; e < filterButtons.length; e++){
       filterButtons[e].classList.remove("active")
       this.classList.add("active")
    
    
     const target = this.getAttribute("data-target")
     for(let k = 0; k < items.length; k++){
-      items[k].style.display = "none"
-      if(target == items[k].getAttribute("data-id")){
-        items[k].style.display = "block" 
-      }
-      if(target == "all"){
-        items[k].style.display = "block"
-      }
+    
+      items[k].classList.remove("active")
+       items[k].classList.add("delete")
+     
+       if(items[k].getAttribute('data-id') == target || target == "all"){
+                items[k].classList.remove('delete');
+                items[k].classList.add('active');
+            }
+      
     }
      }
   })
@@ -222,7 +224,7 @@ for(let i=0; i < filterButtons.length; i++){
 const date = document.getElementById("date").textContent = new Date().getFullYear()
 
 var icon = document.getElementById("icon")
-
+var iconHolder = document.querySelector(".icon-holder")
 if(localStorage.getItem("theme") == null){
   localStorage.setItem("theme", "light")
 }
@@ -237,7 +239,7 @@ if(local == "light"){
   document.body.classList.add("dark-theme")
 }
 
-icon.addEventListener("click", ()=>{
+iconHolder.addEventListener("click", ()=>{
   document.body.classList.toggle("dark-theme")
   if(document.body.classList.contains("dark-theme")){
     icon.src = "../img/sun.png"
