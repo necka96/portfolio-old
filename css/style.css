@@ -365,7 +365,7 @@ header .right-content h2 .typing::after {
   width: 1px;
   height: 90%;
   right: -5px;
-  background: white;
+  background: var(--text);
   -webkit-animation: blink 0.5s infinite ease;
           animation: blink 0.5s infinite ease;
 }
@@ -549,6 +549,20 @@ section img {
   width: 2rem;
   height: 2px;
   background: var(--text);
+}
+
+.sec-two .about-skills .skills-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(150px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  padding: 3rem;
+}
+
+.sec-two .about-skills .skills-container img {
+  width: 100px;
+  height: 100px;
 }
 
 .sec-two .about-stats {
@@ -1029,6 +1043,8 @@ section img {
   padding: 20px 35px;
   margin-bottom: 20px;
   outline: none;
+  -moz-outline: none;
+  -webkit-outline: none;
   width: 100%;
   background: transparent;
 }
@@ -1065,6 +1081,8 @@ section img {
   height: 160px;
   outline: none;
   overflow: hidden;
+  -moz-outline: none;
+  -webkit-outline: none;
   resize: none;
   border-bottom: 1px solid rgba(100, 95, 95, 0.408);
   background: transparent;
@@ -1428,16 +1446,8 @@ body.dark-theme .contact-container-light-theme {
   .sec-four .contact-container-light-theme .form-container {
     grid-column: span 1;
   }
-}
-
-@media only screen and (max-width: 480px) {
-  .sec-four .contact-form {
-    -ms-grid-columns: (minmax(150px, 600px))[auto-fit];
-        grid-template-columns: repeat(auto-fit, minmax(150px, 600px));
-  }
-  .sec-four .contact-form {
-    -ms-grid-columns: (minmax(150px, 600px))[auto-fit];
-        grid-template-columns: repeat(auto-fit, minmax(150px, 600px));
+  .sec-two .skills-container {
+    padding: 0.3rem !important;
   }
 }
 /*# sourceMappingURL=style.css.map */
