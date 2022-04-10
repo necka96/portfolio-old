@@ -916,7 +916,7 @@ section img {
   -ms-grid-columns: 400px 1fr;
       grid-template-columns: 400px 1fr;
   font-size: 0.6rem;
-  width: 90%;
+  width: 80%;
   margin: 2rem auto;
 }
 
@@ -945,7 +945,6 @@ section img {
 .sec-four .contact-container-light-theme .contact-holder p {
   font-size: 0.9rem;
   color: #c8f5e6;
-  line-height: 2rem;
 }
 
 .sec-four .contact-container-light-theme .contact-holder .address,
@@ -1029,6 +1028,7 @@ section img {
   border-bottom: 1px solid rgba(100, 95, 95, 0.408);
   padding: 20px 35px;
   margin-bottom: 20px;
+  outline: none;
   width: 100%;
   background: transparent;
 }
@@ -1063,6 +1063,7 @@ section img {
   padding: 30px 35px;
   margin-bottom: 20px;
   height: 160px;
+  outline: none;
   overflow: hidden;
   resize: none;
   border-bottom: 1px solid rgba(100, 95, 95, 0.408);
